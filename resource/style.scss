@@ -1,0 +1,288 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+span {
+  font-weight: 300;
+}
+
+// Bootstrap
+.form-control {
+  &::placeholder {
+    font-size: 13px;
+  }
+}
+
+.modal-body input.form-control,
+.modal-body input.form-control::placeholder,
+.modal-body select {
+  font-size: 13px !important;
+}
+
+// Turn Off Button Up/Down Input Number
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-title {
+  text-transform: capitalize;
+}
+
+.nav-link {
+  text-transform: capitalize;
+  font-weight: 600 !important;
+  &.active {
+    color: #5e72e4 !important;
+    font-weight: 700 !important;
+  }
+}
+
+// CSS Common Local
+$text: 10;
+@while $text < 20 {
+  .text-#{$text} {
+    font-size: #{$text}px !important;
+  }
+  $text: $text + 1;
+}
+
+$weight: 100;
+@while $weight < 1000 {
+  .weight-#{$weight} {
+    font-weight: #{$weight} !important;
+  }
+  $weight: $weight + 100;
+}
+
+$percent: 10;
+@while $percent <= 100 {
+  .w-#{$percent} {
+    width: #{$percent}#{'%'} !important;
+  }
+  $percent: $percent + 10;
+}
+
+// CSS Local
+.expense {
+  &-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh !important;
+    background-size: cover;
+    &-form {
+      width: 380px;
+      margin: 0 15px;
+    }
+  }
+  &-main-block {
+    background-color: #fff;
+  }
+  &-footer {
+    letter-spacing: 1px;
+  }
+  &-overflow-scroll {
+    overflow: scroll;
+    &-x {
+      overflow-x: scroll;
+    }
+    &-y {
+      overflow-y: scroll;
+    }
+  }
+}
+
+// ScrollBar
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  &-track {
+    background: #f1f1f1;
+  }
+  &-thumb {
+    background: #888;
+    border-radius: 3px;
+    &:hover {
+      background: #555;
+    }
+  }
+}
+
+// Loading
+.loading {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  &:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
+
+    background: -webkit-radial-gradient(rgba(20, 20, 20, 0.55), rgba(0, 0, 0, 0.55));
+  }
+  &:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    &:after {
+      content: '';
+      display: block;
+      font-size: 10px;
+      width: 1em;
+      height: 1em;
+      margin-top: -0.5em;
+      -webkit-animation: spinner 150ms infinite linear;
+      -moz-animation: spinner 150ms infinite linear;
+      -ms-animation: spinner 150ms infinite linear;
+      -o-animation: spinner 150ms infinite linear;
+      animation: spinner 150ms infinite linear;
+      border-radius: 0.5em;
+      -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0,
+        rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0,
+        rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0,
+        rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0,
+        rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+      box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0,
+        rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0,
+        rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0,
+        rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+    }
+  }
+}
+
+/* Animation */
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+// Toast CSS
+.toast {
+  &-body {
+    padding: 0.75rem;
+  }
+  &-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    color: #6c757d;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-clip: padding-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    button.close {
+      display: none;
+    }
+  }
+}
+
+.Toastify {
+  &__progress-bar {
+    height: 2px;
+  }
+  &__close-button {
+    width: 0;
+  }
+  &__toast {
+    padding: 0;
+    border-radius: 3px;
+    &-body {
+      font-size: 13px;
+    }
+    &--dark {
+      background: #172b4d;
+    }
+    &--default {
+      background: #f4f5f7;
+    }
+    &--info {
+      background: #11cdef;
+    }
+    &--success {
+      background: #2dce89;
+    }
+    &--warning {
+      background: #fb6340;
+    }
+    &--error {
+      background: #f5365c;
+    }
+  }
+}
