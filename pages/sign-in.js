@@ -1,3 +1,5 @@
-const signIn = () => <div>SignIn</div>
+import SignIn from 'containers/pages/Auth/SignIn';
+
+const signIn = () => <SignIn />;
 
 export default signIn;
