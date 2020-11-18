@@ -24,7 +24,7 @@ const LayoutMainJars = (props) => {
         </Modal.Header>
         <Modal.Body className="py-2">
           <div className="px-3 pt-2">
-            <div className="px-5 mb-4">
+            <div className="d-none d-md-block mb-4 px-2 px-lg-5">
               <Doughnut
                 data={{
                   labels: jarsName,
@@ -43,13 +43,33 @@ const LayoutMainJars = (props) => {
                 }}
               />
             </div>
+            <div className="d-md-none mb-4 px-2 px-lg-5">
+              <Doughnut
+                data={{
+                  labels: jarsName,
+                  datasets: [
+                    {
+                      backgroundColor: jarsColor,
+                      data: jarsValues,
+                    },
+                  ],
+                }}
+                options={{
+                  legend: {
+                    display: false,
+                    position: 'left',
+                  },
+                  hover: false,
+                }}
+              />
+            </div>
             <Formik
               initialValues={props.initialValues}
               validationSchema={props.validationSchema}
               onSubmit={props.onSubmit}
             >
               <Form>
-                <div className="mb-4 px-5">
+                <div className="mb-4 px-2 px-lg-5">
                   <div className="text-12 weight-700 text-uppercase text-right mb-2">
                     Tổng: {totalPercent || 0}%
                   </div>
