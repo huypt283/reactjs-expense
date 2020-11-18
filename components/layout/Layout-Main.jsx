@@ -1,4 +1,5 @@
 import * as PATH from 'constant/path';
+import * as TEXT from 'constant/text';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
@@ -12,43 +13,41 @@ const Layout = (props) => {
     <div className="expense-main py-3">
       <Container fluid>
         <Row>
-          <Col xs={6} md={3}>
+          <Col xs={6} md={3} className="order-2 order-md-1">
             <div className="expense-main-head">
               <h4 className="mb-0">Xin chào {display_name}!</h4>
               <span className="text-13">Hôm nay bạn có gì mới không?</span>
             </div>
           </Col>
-          <Col xs={6} md={6} className="mt-2 mt-md-0 d-flex align-items-center">
-            <Navbar className="p-0 text-14 ml-auto ml-md-0" expand="sm">
+          <Col xs={6} md={5} className="mt-0 order-1 order-md-2">
+            <Navbar className="p-0 text-14 ml-auto ml-md-0" expand="md">
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                   <Link href={PATH.HOME_PAGE}>
                     <Nav.Link href={PATH.HOME_PAGE} active={pathname === PATH.HOME_PAGE}>
-                      Trang chủ
+                      {TEXT.HOME}
                     </Nav.Link>
                   </Link>
                   <Link href={PATH.HISTORY_PAGE}>
                     <Nav.Link href={PATH.HISTORY_PAGE} active={pathname === PATH.HISTORY_PAGE}>
-                      Lịch sử giao dịch
+                      {TEXT.TRANSACTIONS_HISTORY}
                     </Nav.Link>
                   </Link>
                   <Link href={PATH.REPORT_PAGE}>
                     <Nav.Link href={PATH.REPORT_PAGE} active={pathname === PATH.REPORT_PAGE}>
-                      Báo Cáo Thu Chi
+                      {TEXT.REPORT_REVENUE_EXPENDITURE}
                     </Nav.Link>
                   </Link>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
           </Col>
-          <Col md={3} className="mt-2 mt-md-0 text-left text-md-right">
-            <div className="d-flex justify-content-end">
+          <Col md={4} className="mt-2 order-3">
+            <div className="d-flex justify-content-start justify-content-lg-end">
               {props.componentSetting}
               <div className="ml-1">{props.componentJars}</div>
-            </div>
-            <div className="mt-1">
-              <Button variant="danger" size="sm" className="mt-0" onClick={handleLogout}>
+              <Button variant="danger" size="sm" className="ml-1" onClick={handleLogout}>
                 <i className="fa fa-sign-out" aria-hidden="true" /> Đăng Xuất
               </Button>
             </div>
