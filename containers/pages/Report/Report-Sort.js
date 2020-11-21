@@ -1,18 +1,20 @@
-import { objectJarsToArray } from 'common/jars';
+import { optionsJars } from 'common';
 import ReportSort from 'components/pages/Report/Report-Sort';
-import { JARS } from 'constant/common';
-import * as TEXT from 'constant/text';
 import { arrayUniqueValue, arrSortObjectDate } from 'helpers/array';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-const arrJarsName = objectJarsToArray(JARS);
 
 const ReportSortContainer = (props) => {
   const { transactions } = props;
   const sortDate = arrSortObjectDate(transactions);
   const arrYear = sortDate.map((res) => new Date(res.date).getFullYear());
   const arrYearUnique = arrayUniqueValue(arrYear);
+
+  const optionSortMonth = () => {
+    const result = [];
+    for (let i = 1; i <= 12; i += 1) result.push({ key: i, value: `T${i}` });
+    return result;
+  };
 
   const optionsSortYear = (arrYears) => {
     let result = null;
@@ -22,19 +24,11 @@ const ReportSortContainer = (props) => {
     return result;
   };
 
-  const optionsSortJars = (arrJars) => {
-    let result = null;
-    result = arrJars.map((jar) => {
-      return { key: jar.nameCode, value: jar.name };
-    });
-    result.unshift({ key: 'all', value: TEXT.ALL });
-    return result;
-  };
-
   return (
     <ReportSort
+      optionSortMonth={optionSortMonth()}
       optionsSortYear={optionsSortYear(arrYearUnique)}
-      optionsSortJars={optionsSortJars(arrJarsName)}
+      optionsSortJars={optionsJars()}
       tabSort={props.tabSort}
       setTabSort={props.setTabSort}
       initialValues={props.initialValues}
