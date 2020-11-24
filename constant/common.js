@@ -1,28 +1,52 @@
+export const TYPES = {
+  income: {
+    name: 'Thu Nhập',
+    color: '#5e72e4',
+    mark: '+',
+    markColor: '#2dce89',
+  },
+  expense: {
+    name: 'Chi Tiêu',
+    color: '#f5365c',
+    mark: '-',
+    markColor: '#f5365c',
+  },
+};
+
 export const JARS = {
   necessities: {
     name: 'Thiết yếu',
-    color: '#e93b70',
+    color: '#5e72e4',
   },
   education: {
     name: 'Giáo dục',
-    color: '#0c78e4',
+    color: '#11cdef',
   },
   saving: {
     name: 'Tiết kiệm',
-    color: '#e6a63c',
+    color: '#2dce89',
   },
   play: {
     name: 'Hưởng thụ',
-    color: '#8d4de9',
+    color: '#172b4d',
   },
   investment: {
     name: 'Đầu tư',
-    color: '#7ed320',
+    color: '#fb6340',
   },
   give: {
     name: 'Thiện tâm',
-    color: '#fd51d9',
+    color: '#f5365c',
   },
+};
+
+export const JARSPERCENT = {
+  necessities: 60,
+  education: 10,
+  saving: 10,
+  play: 10,
+  investment: 5,
+  give: 5,
 };
 
 export const GROUPS = {
@@ -108,6 +132,10 @@ export const GROUPS = {
   },
   withdrawal: {
     name: 'Rút tiền',
+    parent: 'necessities',
+  },
+  other: {
+    name: 'Khác',
     parent: 'necessities',
   },
 };
